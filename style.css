@@ -1,0 +1,90 @@
+body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f4f1ea;
+        color: #4a3728;
+      }
+      .font-aesthetic {
+        font-family: "Great Vibes", cursive;
+      }
+      .font-jawa {
+        font-family: "Cinzel", serif;
+      }
+
+      #cover {
+        transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .music-btn {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+/* Tekstur kertas lama untuk kesan klasik */
+.bg-paper {
+    /* background-color: #fcfaf5; */
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/foto6.jpeg'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+
+/* Tekstur batik halus */
+.bg-batik1 {
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/bg-batik.png'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+/* Section gelap untuk kontras */
+.bg-batik2 {
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/bg-batik2.png'); 
+    background-size: cover; 
+    background-position: center;
+    color:white
+}
+.bg-batik3 {
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/bg-batik3.png'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+/* Section gelap untuk kontras */
+.bg-batik4 {
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/bg-batik4.png'); 
+    background-size: cover; 
+    background-position: center;
+    color:white
+}
+.bg-batik5 {
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/bg-batik5.png'); 
+    background-size: cover; 
+    background-position: center;
+    color:white
+}
+.bg-batik6 {
+    background-color: #f4f1ea;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('assets/img/bg-batik6.png'); 
+    background-size: cover; 
+    background-position: center;
+    color:white
+}

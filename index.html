@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Wedding of Selga & Erika</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body class="overflow-hidden">
+    <div class="fixed bottom-5 right-5 z-[100] hidden" id="music-container">
+      <button
+        onclick="toggleMusic()"
+        id="music-btn"
+        class="text-white p-4 music-btn"
+      >
+        <span id="music-icon">🎵</span>
+      </button>
+      <audio id="wedding-music" loop>
+        <source
+          src="assets/music/Kabagyan - Sadewok  Official Music Video.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+    </div>
+
+    <div
+      id="cover"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-cover bg-center transition-transform duration-1000"
+      style="
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url(&quot;assets/img/foto4.jpeg&quot;);
+      "
+    >
+      <div class="text-center text-white">
+        <p
+          class="uppercase tracking-widest mb-4"
+          data-aos="fade-left"
+          data-aos-mirror="true"
+        >
+          The Wedding Of
+        </p>
+        <h1
+          class="font-aesthetic text-3xl mb-6"
+          data-aos="fade-right"
+          data-aos-mirror="true"
+        >
+          Selga Rusmana
+        </h1>
+        <h1
+          class="font-aesthetic text-3xl mb-6"
+          data-aos="fade-left"
+          data-aos-mirror="true"
+        >
+          &
+        </h1>
+        <h1
+          class="font-aesthetic text-3xl mb-6"
+          data-aos="fade-right"
+          data-aos-mirror="true"
+        >
+          Dwi Erika
+        </h1>
+        <div class="mb-8">
+          <p class="text-sm italic" data-aos="fade-up" data-aos-mirror="true">
+            Kepada Yth. Bapak/Ibu/Saudara/i
+          </p>
+          <h2
+            class="text-1xl font-bold mt-2"
+            id="guest-name"
+            data-aos="fade-down"
+            data-aos-mirror="true"
+          >
+            [Nama Tamu]
+          </h2>
+        </div>
+        <button
+          onclick="bukaUndangan()"
+          class="bg-[#735933] hover:bg-[#6f4a30] text-white px-8 py-3 rounded-full transition-all flex items-center gap-2 mx-auto"
+          data-aos="fade-down"
+          data-aos-mirror="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+          Buka Undangan
+        </button>
+      </div>
+    </div>
+    <main id="main-content" class="hidden relative">
+      <section
+        class="relative min-h-screen px-2 pb-20 flex flex-col justify-end text-center bg-paper"
+      >
+        <div class="relative z-10 max-w-4xl mx-auto">
+          <p
+            class="text-4xl text-[#FFFFFF] font-aesthetic text-left mb-4"
+            data-aos="fade-left"
+          >
+            Selga & Erika
+          </p>
+          <div
+            class="mx-auto text-3xl italic opacity-70 mb-4 leading-loose text-[#FFFFFF] text-left"
+            data-aos="fade-up"
+          >
+            ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ
+          </div>
+          <p class="text-[#FFFFFF] mb-4 text-left" data-aos="fade-right">
+            "Segala Puji Bagi Allah SWT yang telah menjadikan hambanya hidup
+            berpasang-pasangan. Dengan memohon Ridho, Rahmat, dan Berkah Allah
+            SWT, kami bermaksud untuk mengundang Saudara/i dalam acara
+            pernikahan yang kami selenggarakan."
+          </p>
+          <h2 class="text-4xl md:text-6xl text-[#FFFFFF] text-left">
+            04 | 04 | 2026
+          </h2>
+        </div>
+
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#f4f1ea] via-transparent to-transparent opacity-80 pointer-events-none"
+        ></div>
+      </section>
+
+      <section
+        class="py-20 grid md:grid-cols-2 gap-16 px-10 max-w-6xl mx-auto bg-batik1"
+      >
+        <div class="text-center" data-aos="fade-up">
+          <img
+            src="assets/img/selga.jpeg"
+            class="w-64 h-80 mx-auto object-cover rounded-t-full border-8 border-[#735933] shadow-lg mb-6"
+          />
+          <h3 class="font-aesthetic text-4xl">Selga Rusmana</h3>
+          <p class="mt-2 text-sm font-bold uppercase tracking-widest">
+            Putra Kedua Dari:
+          </p>
+          <p>Bapak Oja & Ibu Rokiyah (Almh)</p>
+        </div>
+        <div class="text-center" data-aos="fade-down">
+          <img
+            src="assets/img/erika.jpeg"
+            class="w-64 h-80 mx-auto object-cover rounded-t-full border-8 border-[#735933] shadow-lg mb-6"
+          />
+          <h3 class="font-aesthetic text-4xl">Dwi Erika</h3>
+          <p class="mt-2 text-sm font-bold uppercase tracking-widest">
+            Putri Kedua Dari:
+          </p>
+          <p>Bapak Carjukih (Otoy) & Ibu Eliyah</p>
+        </div>
+      </section>
+
+      <section class="bg-[#735933] py-20 text-white text-center bg-batik2">
+        <div class="max-w-4xl mx-auto px-6">
+          <h2
+            class="text-5xl mb-10 text-[#735933] pt-5 font-aesthetic font-bold"
+            data-aos="fade-down"
+          >
+            Save The Date
+          </h2>
+          <div
+            id="countdown"
+            class="flex justify-center gap-2 mb-16 text-4xl font-bold px-3"
+            data-aos="fade-down"
+          ></div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-8 bg-[#735933] rounded-2xl" data-aos="flip-left">
+              <h4 class="font-jawa text-4xl font-boldd mb-4">Akad Nikah</h4>
+              <div class="flex mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-calendar-check"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
+                  />
+                  <path
+                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                  />
+                </svg>
+                <p class="text-start text-xl ml-2">Sabtu, 4 April 2026</p>
+              </div>
+              <div class="flex mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-stopwatch"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"
+                  />
+                  <path
+                    d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"
+                  />
+                </svg>
+                <p class="text-start text-xl ml-2">09.00 - 10.00 WIB</p>
+              </div>
+              <div class="flex mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-geo-alt"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"
+                  />
+                  <path
+                    d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+                  />
+                </svg>
+                <p class="text-start text-xl ml-2">Kediaman Mempelai Wanita</p>
+              </div>
+              <p class="text-start text-xl ml-8 mb-4">
+                Jl Kp Kelapa Cikokol RT 005/011, Gg Hj.Upih, Kel.Cikokol,
+                Kec.Tangerang, Kota Tangerang
+              </p>
+
+              <button
+                onclick="getMaps()"
+                class="mt-6 hover:text-white ease-in-out duration-700 bg-white text-[#8b5e3c] hover:bg-[#735933] px-6 py-2 rounded-full font-bold text-sm"
+              >
+                Lihat Lokasi
+              </button>
+            </div>
+            <div class="p-8 bg-[#735933] rounded-2xl" data-aos="flip-left">
+              <h4 class="font-jawa text-4xl font-boldd mb-4">Resepsi Nikah</h4>
+              <div class="flex mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-calendar-check"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"
+                  />
+                  <path
+                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                  />
+                </svg>
+                <p class="text-start text-xl ml-2">Sabtu, 4 April 2026</p>
+              </div>
+              <div class="flex mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-stopwatch"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"
+                  />
+                  <path
+                    d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"
+                  />
+                </svg>
+                <p class="text-start text-xl ml-2">10.00 - Selesai</p>
+              </div>
+              <div class="flex mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-geo-alt"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"
+                  />
+                  <path
+                    d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+                  />
+                </svg>
+                <p class="text-start text-xl ml-2">Kediaman Mempelai Wanita</p>
+              </div>
+              <p class="text-start text-xl ml-8 mb-4">
+                Jl Kp Kelapa Cikokol RT 005/011, Gg Hj.Upih, Kel.Cikokol,
+                Kec.Tangerang, Kota Tangerang
+              </p>
+
+              <button
+                onclick="getMaps()"
+                class="mt-6 hover:text-white ease-in-out duration-700 bg-white text-[#8b5e3c] hover:bg-[#735933] px-6 py-2 rounded-full font-bold text-sm"
+              >
+                Lihat Lokasi
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 text-center relative overflow-hidden bg-batik3">
+        <div class="absolute inset-0 pointer-events-none"></div>
+
+        <div class="relative z-10 px-4">
+          <h1
+            class="font-jawa text-3xl mb-2 mt-7 text-[#735933] font-bold"
+            data-aos="fade-up"
+          >
+            The Moments Of
+          </h1>
+          <p
+            class="text-3xl font-aesthetic text-[#8b5e3c] mb-10"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Selga & Erika
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <a
+              href="assets/img/foto1.jpeg"
+              data-fancybox="gallery"
+              class="group relative overflow-hidden rounded-xl border-4 border-white shadow-md hover:border-[#735933] transition-all duration-500"
+              data-aos="zoom-in"
+            >
+              <img
+                src="assets/img/foto1.jpeg"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+            </a>
+
+            <a
+              href="assets/img/foto2.jpeg"
+              data-fancybox="gallery"
+              class="group relative overflow-hidden rounded-xl border-4 border-white shadow-md hover:border-[#735933] transition-all duration-500"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="assets/img/foto2.jpeg"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+            </a>
+            <a
+              href="assets/img/foto3.jpeg"
+              data-fancybox="gallery"
+              class="group relative overflow-hidden rounded-xl border-4 border-white shadow-md hover:border-[#735933] transition-all duration-500"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="assets/img/foto3.jpeg"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+            </a>
+            <a
+              href="assets/img/foto4.jpeg"
+              data-fancybox="gallery"
+              class="group relative overflow-hidden rounded-xl border-4 border-white shadow-md hover:border-[#735933] transition-all duration-500"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="assets/img/foto4.jpeg"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+            </a>
+            <a
+              href="assets/img/foto5.jpeg"
+              data-fancybox="gallery"
+              class="group relative overflow-hidden rounded-xl border-4 border-white shadow-md hover:border-[#735933] transition-all duration-500"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="assets/img/foto5.jpeg"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+            </a>
+            <a
+              href="assets/img/foto6.jpeg"
+              data-fancybox="gallery"
+              class="group relative overflow-hidden rounded-xl border-4 border-white shadow-md hover:border-[#735933] transition-all duration-500"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="assets/img/foto6.jpeg"
+                class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-24 px-6 max-w-3xl mx-auto bg-batik5">
+        <h2
+          class="font-jawa text-5xl text-center mb-10 text-[#8b5e3c]"
+          data-aos="fade-up"
+        >
+          Send Your Messages
+        </h2>
+
+        <form
+          id="wish-form"
+          class="bg-white p-8 rounded-2xl shadow-xl space-y-4 mb-12"
+          data-aos="fade-up"
+        >
+          <input
+            type="text"
+            id="name"
+            placeholder="Nickname"
+            class="w-full p-4 border rounded-xl text-black focus:ring-2 focus:ring-[#8b5e3c] outline-none"
+            required
+          />
+          <textarea
+            id="message"
+            placeholder="Write your greeting here..."
+            class="w-full p-4 border rounded-xl text-black h-32 focus:ring-2 focus:ring-[#8b5e3c] outline-none"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            id="btn-submit"
+            class="w-full bg-[#735933] text-white py-4 rounded-xl font-bold hover:bg-[#FFFFFF] hover:text-[#735933] ease-in-out duration-700 transition"
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div
+          id="wish-container"
+          class="space-y-4 h-80 overflow-y-auto pr-2 custom-scrollbar"
+          data-aos="fade-up"
+        >
+          <p class="text-center opacity-50">Memuat ucapan...</p>
+        </div>
+      </section>
+
+      <section class="py-20 bg-[#2d241e] text-white text-center bg-batik6">
+        <h2 class="font-jawa mt-10 text-3xl mb-12 text-[#735933] font-bold" data-aos="fade-up">
+          Sign Of Love
+        </h2>
+        <div class="flex flex-wrap justify-center gap-6" data-aos="zoom-in">
+          <div class="bg-[#856F49] text-black p-8 rounded-2xl w-72">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg"
+              class="h-8 mx-auto mb-4"
+            />
+            <p class="text-lg font-bold text-white">8670346120</p>
+            <p class="text-sm text-white">a/n Selga Rusmana</p>
+            <button
+              onclick="copyRek('8670346120', this)"
+              class="mt-4 text-xs bg-[#8b5e3c] text-white px-4 py-2 rounded-full transition-all duration-300 shadow-md active:scale-95"
+            >
+              Salin Rekening
+            </button>
+          </div>
+          <div class="bg-[#856F49] text-black p-8 rounded-2xl w-72 mb-2">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg"
+              class="h-8 mx-auto mb-4"
+            />
+            <p class="text-lg font-bold text-white">6580683931</p>
+            <p class="text-sm text-white">a/n Dwi Erika</p>
+            <button
+              onclick="copyRek('6580683931', this)"
+              class="mt-4 text-xs bg-[#8b5e3c] text-white px-4 py-2 rounded-full transition-all duration-300 shadow-md active:scale-95"
+            >
+              Salin Rekening
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <section>
+      <p class="text-center text-sm text-white py-4 bg-[#735933]">
+       Made With Love by Triyasa Bintang Ardana
+      </p>
+      <div class="flex justify-center gap-2 bg-[#735933] pb-2">
+      <div class="py-2 px-2 shadow-lg bg-[#735933] flex justify-center gap-4">
+      <a href="https://www.instagram.com/triyasa_/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" class="bi bi-instagram" viewBox="0 0 16 16">
+  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+</svg>
+      </a></div>
+      <div class="py-2 px-2 shadow-lg bg-[#735933] flex justify-center gap-4">
+      <a href="https://x.com/qiuwwwwwwwwww" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" class="bi bi-twitter" viewBox="0 0 16 16">
+  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+</svg>
+      </a></div>
+      <div class="py-2 px-2 shadow-lg bg-[#735933] flex justify-center gap-4">
+      <a href="https://wa.me/6289424029154" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" class="bi bi-whatsapp" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg>
+      </a></div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      Fancybox.bind("[data-fancybox='gallery']", {
+        showClass: "f-fadeIn",
+        hideClass: "f-fadeOut",
+        Images: {
+          Panzoom: {
+            maxScale: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
